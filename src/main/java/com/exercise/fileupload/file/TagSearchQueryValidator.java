@@ -22,7 +22,7 @@ class TagSearchQueryValidator implements ConstraintValidator<TagSearchQueryConst
 
         if (!invalidTags.isEmpty()) {
             return new ConstraintValidationMessageChanger()
-                    .failValidationWithCustomErrorMessage(context, "Some tags are invalid: ", invalidTags);
+                    .failValidationWithCustomErrorMessage(context, "Following tags are invalid: ", invalidTags);
         }
 
         Set<String> duplicates = findDuplicates(tagsWithoutBlanks);

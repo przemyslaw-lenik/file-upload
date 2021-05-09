@@ -15,9 +15,9 @@ class TagListPatternValidator implements ConstraintValidator<TagListPattern, Lis
 
     @Override
     public boolean isValid(List<String> tags, ConstraintValidatorContext context) {
-        if (tags == null) {
+        if (tags == null || tags.isEmpty()) {
             return new ConstraintValidationMessageChanger()
-                    .failValidationWithCustomErrorMessage(context, "Tags cannot be null");
+                    .failValidationWithCustomErrorMessage(context, "Tags cannot be null or empty");
         }
 
         List<String> invalidTags = isTagsBlankOrContainingInvalidChars(tags);

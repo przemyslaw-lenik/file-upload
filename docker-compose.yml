@@ -7,6 +7,9 @@ services:
       - "SPRING_PROFILES_ACTIVE=docker"
     ports:
       - "8090:8090"
+      - "5005:5005"
+    command:
+      - "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
     depends_on:
       - db
   db:

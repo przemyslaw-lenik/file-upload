@@ -19,7 +19,7 @@ class FileController {
     private final FileService fileService;
 
     @PostMapping("/file")
-    public FileCreatedDto insertFile(@RequestBody FileCreateRequestDto request) {
+    public FileCreatedDto insertFile(@RequestBody @Validated FileCreateRequestDto request) {
         UUID persistedFileId = fileService.createFile(request);
         return new FileCreatedDto(persistedFileId);
     }
